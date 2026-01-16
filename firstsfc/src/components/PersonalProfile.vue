@@ -1,101 +1,128 @@
 <template>
-   <div class="header">
-  Personal Profile Web Page
-</div>
-
-<!-- NAVIGATION -->
-<nav>
-  <a href="index.html">Home</a>
-  <a href="gallery.html">1975 Concert Gallery</a>
-  <a href="apcrams.html">APC RAMS</a>
-  <a href="resources.html">Resources</a>
-  <a href="https://open.spotify.com/playlist/2HsUnenU2argKszYFjNoIK?si=33c80e5e781946fc" target="_blank">
-    Spotify Playlist 🎧
-  </a>
-</nav>
-
-<!-- MAIN LAYOUT -->
-<div class="row">
-
-  <!-- LEFT: PROFILE IMAGE -->
-  <div class="profile-image">
-    <img src="images/profile.jpg" alt="My Profile Picture">
+  <!-- HEADER -->
+  <div class="header">
+    Personal Profile Web Page
   </div>
 
-  <!-- CENTER: ABOUT ME -->
-  <div class="main">
-    <h1>About Me</h1>
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="gallery.html">1975 Concert Gallery</a>
+    <a href="apcrams.html">APC RAMS</a>
+    <a href="resources.html">Resources</a>
+    <a
+      href="https://open.spotify.com/playlist/2HsUnenU2argKszYFjNoIK?si=33c80e5e781946fc"
+      target="_blank"
+    >
+      Spotify Playlist 🎧
+    </a>
+  </nav>
 
-    <p><strong>Name:</strong> Kirsten Evan M. Pimentel</p>
-    <p><strong>Education:</strong> Asia Pacific College</p>
-    <p><strong>Course:</strong> BSIT – Mobile & Internet Technologies</p>
+  <!-- MAIN LAYOUT -->
+  <div class="row">
+    <!-- LEFT: PROFILE IMAGE -->
+    <div class="profile-image">
+      <img src="images/profile.jpg" alt="My Profile Picture" />
+    </div>
 
-    <p class="about-text">
-      In my free time, I enjoy playing online games with my friends such as
-      Valorant and League of Legends. I also like to rewatch
-      my favorite series such as Haikyuu, The Walking Dead, and Peaky Blinders.
-    </p>
+    <!-- CENTER: ABOUT ME -->
+    <div class="main">
+      <h1>About Me</h1>
 
-    <p class="about-text">
-      When I want to relax, I usually read books. One of my favorite books is
-      <em>The Perks of Being a Wallflower</em>.
-    </p>
+      <p><strong>Name:</strong> Kirsten Evan M. Pimentel</p>
+      <p><strong>Education:</strong> Asia Pacific College</p>
+      <p><strong>Course:</strong> BSIT – Mobile & Internet Technologies</p>
+
+      <p class="about-text">
+        In my free time, I enjoy playing online games with my friends such as
+        Valorant and League of Legends. I also like to rewatch my favorite series
+        such as Haikyuu, The Walking Dead, and Peaky Blinders.
+      </p>
+
+      <p class="about-text">
+        When I want to relax, I usually read books. One of my favorite books is
+        <em>The Perks of Being a Wallflower</em>.
+      </p>
+    </div>
+
+    <!-- RIGHT: THE 1975 HIGHLIGHTS -->
+    <div class="right">
+      <h3>Favorite The 1975 Highlights</h3>
+
+      <p>
+        <strong>Favorite Era:</strong><br />
+        <em>A Brief Inquiry Into Online Relationships</em>
+      </p>
+
+      <p>
+        <strong>Favorite Song:</strong><br />
+        <em>I Always Wanna Die (Sometimes)</em>
+      </p>
+
+      <p>
+        <strong>Favorite Lyric:</strong><br />
+        “If you can't survive, just try”
+      </p>
+
+      <p><strong>Go-to Emotion:</strong> Chill</p>
+      <p><strong>Never Skip:</strong> Heart Out</p>
+      <p><strong>Recommendation:</strong> She's American</p>
+    </div>
   </div>
 
-  <!-- RIGHT: THE 1975 HIGHLIGHTS -->
-  <div class="right">
-    <h3>Favorite The 1975 Highlights</h3>
+  <!-- SPOTIFY -->
+  <iframe
+    style="border-radius: 12px"
+    src="https://open.spotify.com/embed/playlist/2HsUnenU2argKszYFjNoIK"
+    width="100%"
+    height="380"
+    frameborder="0"
+    allowfullscreen
+  ></iframe>
 
-    <p><strong>Favorite Era:</strong><br>
-    <em>A Brief Inquiry Into Online Relationships</em></p>
+  <!-- GUESTBOOK -->
+  <section class="guestbook">
+    <h2>Guestbook</h2>
 
-    <p><strong>Favorite Song:</strong><br>
-    <em>I Always Wanna Die (Sometimes)</em></p>
+    <input v-model="name" placeholder="Your name" />
+    <textarea v-model="comment" placeholder="Your comment"></textarea>
+    <button @click="addComment">Post</button>
 
-    <p><strong>Favorite Lyric:</strong><br>
-    “If you can't survive, just try”</p>
+    <ul>
+      <li v-for="(entry, index) in entries" :key="index">
+        <strong>{{ entry.name }}:</strong> {{ entry.comment }}
+      </li>
+    </ul>
+  </section>
 
-    <p><strong>Go-to Emotion:</strong> Chill</p>
-
-    <p><strong>Never Skip:</strong> Heart Out</p>
-
-    <p><strong>Recommendation:</strong> She's American</p>
+  <!-- FOOTER -->
+  <div class="footer">
+    Resize the browser window to see the responsive effect.
   </div>
+</template>
 
-</div>
-
-<!-- SPOTIFY -->
-<iframe
-  style="border-radius:12px"
-  src="https://open.spotify.com/embed/playlist/2HsUnenU2argKszYFjNoIK"
-  width="100%"
-  height="380"
-  frameborder="0"
-  allowfullscreen>
-</iframe>
-
-<!-- GUESTBOOK -->
-<section id="guestbookApp" class="guestbook">
-  <h2>Guestbook</h2>
-
-  <input v-model="name" placeholder="Your name">
-  <textarea v-model="comment" placeholder="Your comment"></textarea>
-  <button @click="addComment">Post</button>
-
-  <ul>
-    <li v-for="entry in entries">
-      <strong>{{ entry.name }}:</strong> {{ entry.comment }}
-    </li>
-  </ul>
-</section>
-
-<!-- FOOTER -->
-<div class="footer">
-  Resize the browser window to see the responsive effect.
-</div>
-
-</template>>
-
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      name: "",
+      comment: "",
+      entries: []
+    }
+  },
+  methods: {
+    addComment() {
+      if (this.name.trim() && this.comment.trim()) {
+        this.entries.push({
+          name: this.name,
+          comment: this.comment
+        })
+        this.name = ""
+        this.comment = ""
+      }
+    }
+  }
+}
+</script>
 
 <style src="./css/personalprofile.css"></style>
