@@ -22,7 +22,7 @@
   <div class="row">
     <!-- LEFT: PROFILE IMAGE -->
     <div class="profile-image">
-      <img src="images/profile.jpg" alt="My Profile Picture" />
+      <img :src="profileImage" alt="My Profile Picture" />
     </div>
 
     <!-- CENTER: ABOUT ME -->
@@ -102,13 +102,17 @@
 </template>
 
 <script>
+// Import the image since it's inside src/components/images
+import profileImage from "./images/profile.jpg";
+
 export default {
   data() {
     return {
+      profileImage,
       name: "",
       comment: "",
       entries: []
-    }
+    };
   },
   methods: {
     addComment() {
@@ -116,13 +120,13 @@ export default {
         this.entries.push({
           name: this.name,
           comment: this.comment
-        })
-        this.name = ""
-        this.comment = ""
+        });
+        this.name = "";
+        this.comment = "";
       }
     }
   }
-}
+};
 </script>
 
 <style src="./css/personalprofile.css"></style>
