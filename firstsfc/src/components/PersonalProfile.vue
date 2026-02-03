@@ -1,7 +1,7 @@
 <template>
   <!-- HEADER -->
-  <div class="header">
-    Personal Profile Web Page
+  <div class="container">
+    <header> <h1>Personal Profile Web Page </h1> </header>
   </div>
 
   <!-- NAVIGATION -->
